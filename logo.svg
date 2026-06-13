@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Logo de PASEA2">
+    <!-- Huella de PASEA2: circulo verde con pata blanca -->
+    <circle cx="100" cy="100" r="94" fill="#2f8f5b"/>
+    <!-- Almohadilla -->
+    <ellipse cx="100" cy="116" rx="40" ry="34" fill="#ffffff"/>
+    <!-- Cuatro dedos -->
+    <circle cx="63"  cy="76" r="11" fill="#ffffff"/>
+    <circle cx="88"  cy="63" r="11" fill="#ffffff"/>
+    <circle cx="112" cy="63" r="11" fill="#ffffff"/>
+    <circle cx="137" cy="76" r="11" fill="#ffffff"/>
+</svg>
