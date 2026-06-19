@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Santiago Rivera Mejia - Desarrollo Web 1">
+        <meta name="author" content="Carlos Alberto Acevedo Carmona - Desarrollo Web 1">
+        <meta name="description" content="Formulario de registro de clientes y mascotas del servicio de paseo de perros PASEA2, con validacion en HTML y JavaScript.">
+
+        <title>PASEA2 - Registro de Cliente y Mascota</title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #eef4ef;
+                margin: 0;
+                padding: 0;
+                color: #1f3d2f;
+            }
+
+            .barra_nav {
+                background-color: #2f8f5b;
+                color: #ffffff;
+                padding: 14px 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .barra_nav .marca {
+                font-size: 20px;
+                font-weight: bold;
+                letter-spacing: 1px;
+            }
+
+            .barra_nav a {
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: bold;
+                border: 1px solid #ffffff;
+                padding: 6px 14px;
+                border-radius: 4px;
+            }
+
+            .barra_nav a:hover {
+                background-color: #ffffff;
+                color: #2f8f5b;
+            }
+
+            form {
+                background-color: #ffffff;
+                max-width: 640px;
+                margin: 25px auto;
+                padding: 25px;
+                border: 1px solid #cfe0d4;
+                border-radius: 8px;
+            }
+
+            h1 {
+                text-align: center;
+                color: #2f8f5b;
+                margin-top: 0;
+            }
+
+            .subtitulo {
+                text-align: center;
+                margin-top: -8px;
+                color: #6b8475;
+                font-style: italic;
+            }
+
+            h2 {
+                color: #2f8f5b;
+                border-bottom: 2px solid #2f8f5b;
+                padding-bottom: 5px;
+                margin-top: 30px;
+            }
+
+            label {
+                display: block;
+                margin-top: 12px;
+                font-weight: bold;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="password"],
+            input[type="number"],
+            input[type="date"],
+            select,
+            textarea {
+                width: 100%;
+                padding: 8px;
+                margin-top: 4px;
+                border: 1px solid #cfe0d4;
+                border-radius: 4px;
+            }
+
+            .error {
+                color: #c0392b;
+                font-size: 13px;
+                display: block;
+                min-height: 16px;
+            }
+
+            .boton {
+                display: block;
+                width: 100%;
+                margin-top: 25px;
+                padding: 12px;
+                background-color: #2f8f5b;
+                color: #ffffff;
+                font-size: 16px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .boton:hover {
+                background-color: #237045;
+            }
+
+            .pie {
+                text-align: center;
+                font-size: 13px;
+                color: #6b8475;
+                margin: 25px 0;
+            }
+
+            .pie a {
+                color: #2f8f5b;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="barra_nav">
+            <span class="marca">PASEA2</span>
+            <a href="about.html">Acerca de</a>
+        </nav>
+
+        <form id="form_registro" name="formRegistro" action="#" autocomplete="on">
+
+            <h1> PASEA2</h1>
+            <p class="subtitulo">Formulario de registro para el Servicio de paseo de perros PASEA2 </p>
+
+            <!-- =========================== Datos del dueño =========================== -->
+            <h2>Datos del dueño</h2>
+
+            <!-- 1. Texto corto: Nombres -> <input type="text"> -->
+            <label for="nombres">Nombres:</label>
+            <input type="text" id="nombres" name="Nombres" placeholder="Ej: Maria Fernanda"
+                   title="Solo letras, minimo 3 caracteres" autocomplete="given-name"
+                   required="on" minlength="3" maxlength="40" pattern="[a-zA-ZÀ-ÿ]+(\s+[a-zA-ZÀ-ÿ]+)*">
+            <span class="error" id="error_nombres"></span>
+
+            <!-- 2. Texto corto: Apellidos -> <input type="text"> -->
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="Apellidos" placeholder="Ej: Gomez Perez"
+                   title="Solo letras, minimo 3 caracteres" autocomplete="family-name"
+                   required="on" minlength="3" maxlength="40" pattern="[a-zA-ZÀ-ÿ]+(\s+[a-zA-ZÀ-ÿ]+)*">
+            <span class="error" id="error_apellidos"></span>
+
+            <!-- 3. Texto corto / numero: Cedula -> <input type="text"> -->
+            <label for="cedula">Cédula:</label>
+            <input type="text" id="cedula" name="Cedula" placeholder="Solo numeros, 6 a 10 digitos"
+                   title="Solo numeros, entre 6 y 10 digitos"
+                   required="on" minlength="6" maxlength="10" pattern="\d{6,10}">
+            <span class="error" id="error_cedula"></span>
+
+            <!-- 4. Telefono -> <input type="tel"> -->
+            <label for="telefono">Telélefono :</label>
+            <input type="tel" id="telefono" name="Telefono" placeholder="10 digitos"
+                   title="10 digitos numericos" autocomplete="tel"
+                   required="on" minlength="10" maxlength="10" pattern="\d{10}">
+            <span class="error" id="error_telefono"></span>
+
+            <!-- 5. Correo electronico -> <input type="email"> -->
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="Correo" placeholder="ejemplo@correo.com"
+                   title="Ingrese un correo valido, por ejemplo: nombre@correo.com"
+                   autocomplete="email" required="on">
+            <span class="error" id="error_correo"></span>
+
+            <!-- 6. Texto oculto: Contrasena -> <input type="password"> -->
+            <label for="clave">Contraseña:</label>
+            <input type="password" id="clave" name="Clave" placeholder="Entre 7 y 20 caracteres"
+                   title="Entre 7 y 20 caracteres" autocomplete="new-password"
+                   required="on" minlength="7" maxlength="20" pattern=".{7,20}">
+            <span class="error" id="error_clave"></span>
+
+            <!-- 11. Opcion unica abierta: Barrio -> <datalist> -->
+            <label for="barrio">Barrio / zona de recogida:</label>
+            <input list="lista_barrios" id="barrio" name="Barrio" placeholder="Escriba o elija un barrio"
+                   autocomplete="off" required="on">
+            <datalist id="lista_barrios">
+                <option value="El Poblado">
+                <option value="Laureles">
+                <option value="Belen">
+                <option value="Envigado">
+                <option value="Sabaneta">
+            </datalist>
+            <span class="error" id="error_barrio"></span>
+
+            <!-- =========================== DATOS DE LA MASCOTA =========================== -->
+            <h2>Datos de la mascota</h2>
+
+            <!-- 7. Texto corto: Nombre del perro -> <input type="text"> -->
+            <label for="nombre_perro">Nombre del perro:</label>
+            <input type="text" id="nombre_perro" name="NombrePerro" placeholder="Ej: Firulais"
+                   required="on" maxlength="30">
+            <span class="error" id="error_nombre_perro"></span>
+
+            <!-- 8. Numero: Edad del perro -> <input type="number"> -->
+            <label for="edad_perro">Edad del perro (años):</label>
+            <input type="number" id="edad_perro" name="EdadPerro" placeholder="Entre 0 y 25" min="0" max="25" required="on">
+            <span class="error" id="error_edad_perro"></span>
+
+            <!-- 9. Numero en un rango: Peso del perro -> <input type="range"> -->
+            <label for="peso_perro">Peso del perro: <span id="valor_peso">15</span> kg</label>
+            <input type="range" id="peso_perro" name="PesoPerro" min="1" max="60" step="1" value="15">
+
+            <!-- 10. Fecha: Fecha de nacimiento -> <input type="date"> -->
+            <label for="fecha_nac">Fecha de nacimiento del perro:</label>
+            <input type="date" id="fecha_nac" name="FechaNacimiento" required="on">
+            <span class="error" id="error_fecha_nac"></span>
+
+            <!-- 12. Opcion unica: Sexo del perro -> <input type="radio"> -->
+            <label>Sexo del perro:</label>
+            <input type="radio" id="sexo_m" name="Sexo" value="Macho" required="on"> Macho
+            <input type="radio" id="sexo_h" name="Sexo" value="Hembra"> Hembra
+            <span class="error" id="error_sexo"></span>
+
+            <!-- 13. Opcion unica: Tamano -> <select> -->
+            <label for="tamano">Tamaño del perro:</label>
+            <select id="tamano" name="Tamano" required="on">
+                <option value="">-- Seleccione un tamaño --</option>
+                <option value="Pequeno">Pequeño (menos de 10 kg)</option>
+                <option value="Mediano">Mediano (10 a 25 kg)</option>
+                <option value="Grande">Grande (más de 25 kg)</option>
+            </select>
+            <span class="error" id="error_tamano"></span>
+
+            <!-- 14. Opcion unica abierta: Raza -> <datalist> -->
+            <label for="raza">Raza:</label>
+            <input list="lista_razas" id="raza" name="Raza" placeholder="Escriba o elija una raza"
+                   autocomplete="off" required="on">
+            <datalist id="lista_razas">
+                <option value="Criollo / Mestizo">
+                <option value="Labrador">
+                <option value="Poodle">
+                <option value="Bulldog">
+                <option value="Pastor Aleman">
+                <option value="Chihuahua">
+                <option value="Golden Retriever">
+            </datalist>
+            <span class="error" id="error_raza"></span>
+
+            <!-- 15. Varias opciones: Servicios deseados -> <input type="checkbox"> -->
+            <label>Servicios deseados (elija uno o varios):</label>
+            <input type="checkbox" id="serv_individual" name="Servicios" value="Paseo individual"> Paseo individual
+            <input type="checkbox" id="serv_grupal" name="Servicios" value="Paseo grupal"> Paseo grupal
+            <input type="checkbox" id="serv_guarderia" name="Servicios" value="Guarderia"> Guarderia
+            <input type="checkbox" id="serv_bano" name="Servicios" value="Bano"> Baño
+            <span class="error" id="error_servicios"></span>
+
+            <!-- 16. (Extra) Color del collar -> <input type="color"> -->
+            <label for="color_collar">Color del collar (para identificarlo):</label>
+            <input type="color" id="color_collar" name="ColorCollar" value="#2f8f5b">
+
+            <!-- 17. (Extra) Carne de vacunacion -> <input type="file"> -->
+            <label for="carne">Carné; de vacunación:</label>
+            <input type="file" id="carne" name="Carne" accept="image/*,application/pdf">
+            <span class="error" id="error_carne"></span>
+
+            <!-- 0. Texto largo: Observaciones -> <textarea> -->
+            <label for="observaciones">Observaciones (comportamiento, alergias, etc.):</label>
+            <textarea id="observaciones" name="Observaciones" rows="3" maxlength="200"
+                      placeholder="Escriba aqui sus observaciones (opcional, maximo 200 caracteres)"></textarea>
+
+            <!-- 18. Verdadero / falso: Vacunas al dia -> <input type="checkbox"> -->
+            <label>
+                <input type="checkbox" id="vacunas" name="Vacunas" required="on">
+                Declaro que mi perro tiene las vacunas al día
+            </label>
+            <span class="error" id="error_vacunas"></span>
+
+            <!-- 19. Verdadero / falso: Aceptar terminos -> <input type="checkbox"> -->
+            <label>
+                <input type="checkbox" id="terminos" name="Terminos" required="on">
+                Acepto los términos y condiciones del servicio
+            </label>
+            <span class="error" id="error_terminos"></span>
+
+            <button type="submit" class="boton">Registrar paseo</button>
+
+        </form>
+
+        <p class="pie">
+            &copy; 2026 PASEA2 <a href="about.html">Acerca de este proyecto</a>
+        </p>
+
+        <script src="validacion_form.js"></script>
+
+    </body>
+
+</html>
